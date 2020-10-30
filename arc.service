@@ -1,0 +1,15 @@
+[Unit]
+Description=arc service
+Documentation=https://github.com/evilsocket/arc
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+PermissionsStartOnly=true
+ExecStart=/usr/local/bin/arc -config /usr/local/etc/arc/config.json -log /var/log/arc.log
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
